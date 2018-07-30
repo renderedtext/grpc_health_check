@@ -13,6 +13,7 @@ defmodule GrpcHealthCheck.Mixfile do
 
   def application do
     [
+      mod: {GrpcHealthCheck, []},
       extra_applications: [:logger]
     ]
   end
