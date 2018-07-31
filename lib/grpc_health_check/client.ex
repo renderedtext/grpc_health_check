@@ -2,6 +2,8 @@ defmodule GrpcHealthCheck.Client do
   require Logger
 
   def call do
+    Application.ensure_all_started(:gun)
+
     {:ok, channel} = GRPC.Stub.connect("localhost:50051")
     request = Grpc.Health.V1.HealthCheckRequest.new(service: "healthcheck")
 
