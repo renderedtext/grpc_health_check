@@ -22,15 +22,27 @@ def deps do
 end
 ```
 
-Also, add this it to the list of your applications:
+And also add the health check server to your supervision tree:
 
 ```elixir
-def application do
-  [applications: [:grpc_health_check]]
-end
+services = [
+ ...,
+ GrpcHealthCheck.Server
+]
+
+children = [
+  supervisor(GRPC.Server.Supervisor, [{services, port}])
+]
+
+Supervisor.start_link(children, opts)
 ```
+
+If you're not running the GRPC workers as a part of a supervision tree, run the
+server alongside the rest of your GRPC workers.
 
 ## Usage
 
 The health check server will be running with you application.
-TODO: How to write a client to check the server
+
+Running `mix healthcheck` will run the health check client and call the health
+check service.
