@@ -8,7 +8,7 @@ defmodule GrpcHealthCheck do
     Logger.info("Running application in #{Mix.env()} environment")
 
     children = [
-      supervisor(GRPC.Server.Supervisor, [{GrpcHealthCheck.Server, 50051}])
+      worker(GrpcHealthCheck.Server, [50_055])
     ]
 
     opts = [strategy: :one_for_one, name: __MODULE__]
