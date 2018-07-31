@@ -22,23 +22,13 @@ def deps do
 end
 ```
 
-And also add the health check server to your supervision tree:
+Also, make sure the application is started:
 
 ```elixir
-services = [
- ...,
- GrpcHealthCheck.Server
-]
-
-children = [
-  supervisor(GRPC.Server.Supervisor, [{services, port}])
-]
-
-Supervisor.start_link(children, opts)
+  def application do
+    [extra_applications: [:grpc_health_check]]
+  end
 ```
-
-If you're not running the GRPC workers as a part of a supervision tree, run the
-server alongside the rest of your GRPC workers.
 
 ## Usage
 
