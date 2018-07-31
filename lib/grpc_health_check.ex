@@ -1,7 +1,7 @@
 defmodule GrpcHealthCheck do
   require Logger
 
-  def start do
+  def start(_, _) do
     Logger.info "GRPC Healthcheck started"
   end
 end
