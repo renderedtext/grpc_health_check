@@ -3,6 +3,8 @@ defmodule GrpcHealthCheck do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec
+
     Logger.info "GRPC Healthcheck started"
 
     children = [
