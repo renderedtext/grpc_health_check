@@ -4,7 +4,8 @@ defmodule Mix.Tasks.Healthcheck do
   @shortdoc "Runs healthcheck for GRPC server"
   @moduledoc "Runs healthcheck for GRPC server"
 
-  def run(_) do
-    GrpcHealthCheck.Client.call()
+  def run(args) do
+    port = Eunm.at(args, 0) || "50051"
+    GrpcHealthCheck.Client.call(port)
   end
 end

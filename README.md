@@ -46,3 +46,6 @@ The health check server will be running with you application.
 
 Running `mix healthcheck` will run the health check client and call the health
 check service.
+
+If your gRPC server is runing on non-standard port (i.e. different from 50051),
+you can pass exact port as a parameter to `mix healthcheck` command.
