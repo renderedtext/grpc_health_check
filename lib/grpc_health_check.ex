@@ -3,8 +3,6 @@ defmodule GrpcHealthCheck do
   use Application
 
   def start(_type, _args) do
-    Logger.info "GRPC Healthcheck started"
-
     children = []
 
     opts = [strategy: :one_for_one, name: GrpcHealthCheck]
