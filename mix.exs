@@ -20,7 +20,7 @@ defmodule GrpcHealthCheck.Mixfile do
 
   defp deps do
     [
-      {:protobuf, "~> 0.5.3"},
+      {:protobuf, "~> 0.7.1"},
       {:grpc, "~> 0.3.1"}
     ]
   end
