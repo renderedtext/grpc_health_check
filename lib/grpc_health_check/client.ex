@@ -1,6 +1,4 @@
 defmodule GrpcHealthCheck.Client do
-  require Logger
-
   def call do
     Application.ensure_all_started(:gun)
 
@@ -9,6 +7,6 @@ defmodule GrpcHealthCheck.Client do
 
     {:ok, reply} = channel |> Grpc.Health.V1.Health.Stub.check(request)
 
-    Logger.info "Healthcheck request completed"
+    GrpcHealthCheck.verbose_log("Healthcheck request completed")
   end
 end
