@@ -1,6 +1,6 @@
 # GrpcHealthCheck
 
-GrprHealthCheck implements the official Grpc health checking interface in
+GrpcHealthCheck implements the official Grpc health checking interface in
 Elixir. It can be used to check if Elixir based Grpc servers are up and running.
 
 More on Grpc health checks:
@@ -42,7 +42,9 @@ server alongside the rest of your GRPC workers.
 
 ## Usage
 
-The health check server will be running with you application.
+The health check server will be running with your application.
+Running `mix healthcheck` will run the health check client and call the health check service.
 
-Running `mix healthcheck` will run the health check client and call the health
-check service.
+## License
+
+This software is licensed under [the Apache 2.0 license](LICENSE).
