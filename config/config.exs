@@ -1,3 +1,3 @@
 use Mix.Config
 
-config :gprc_health_check, verbose_log: false
+config :grpc_health_check, verbose_log: false
